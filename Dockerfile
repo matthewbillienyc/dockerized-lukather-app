@@ -1,14 +1,15 @@
 # Ruby API Section
 FROM ruby:2.3
+RUN mkdir /apps/
+RUN mkdir /apps/lukather-api
+WORKDIR /apps/lukather-api
 RUN apt-get update && \
   apt-get -y install build-essential libpq-dev && \
   apt-get -y install nodejs --no-install-recommends && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
   gem install bundler
-RUN mkdir /apps/
-RUN mkdir /apps/lukather-api
-WORKDIR /apps/lukather-api
+
 COPY /lukather-api/Gemfile /apps/lukather-api/Gemfile
 COPY /lukather-api/Gemfile.lock /apps/lukather-api/Gemfile.lock
 # BUNDLER_RUBYGEMS_MIRROR example value: "http://localhost:9292"
