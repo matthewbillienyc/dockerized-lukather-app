@@ -8,11 +8,11 @@ import Year from './Year'
 import Home from './Home'
 
 module.exports = (
-    <Route path="/" component={App}>
+  <Route path="/" component={App}>
     <IndexRoute component={Home}/>
     <Route path="/years" component={YearsContainer}>
-    <Route path="/years/:year" component={Year}/>
+      <Route path="/years/:year" component={Year}/>
     </Route>
     <Route path="/about" component={About}/>
-    </Route>
+  </Route>
 )

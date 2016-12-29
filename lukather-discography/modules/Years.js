@@ -7,12 +7,14 @@ export default React.createClass({
   },
 
   render() {
-    return (
+    var yearsList = this.props.years.map(function(year){
+      return (<li key={year.year}><NavLink to={"/years/" + year.year}>{year.year}</NavLink></li>)
+    })
+    return (  
       <div>
         <h2>Years</h2>
         <ul>
-          <li><NavLink to="/years/1978">1978</NavLink></li>
-          <li><NavLink to="/years/1979">1979</NavLink></li>
+        {yearsList}
         </ul>
         {this.props.children}
       </div>

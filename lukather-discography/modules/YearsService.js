@@ -1,6 +1,20 @@
-import React form 'react'
+import React from 'react'
 import 'whatwg-fetch'
 
-export default React.createClass({
-  
-})
+const years = [
+  {
+    year: 1977
+  },
+  {
+    year: 1978
+  },
+  {
+    year: 1979
+  }
+]
+
+export default const YearsService = {
+  getYears(){
+    return years
+  }
+}
