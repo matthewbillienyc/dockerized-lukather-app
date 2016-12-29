@@ -13,16 +13,17 @@ services:
       DB_HOST: db
       DB_USERNAME: postgres
     volumes:
-      - .:/apps/lukather-api
+      - ./lukather-api:/apps/lukather-api
     ports:
       - "3000:3000"
     depends_on:
       - db
   web:
-    build: .
+    build: 
+      context: .
     command: npm start
     ports:
       - "8080:8080"
     volumes:
-      - ./:/apps/lukather-discography/src/app
+      - ./lukather-discography:/apps/lukather-discography/src/app
     working_dir: /apps/lukather-discography/src/app
