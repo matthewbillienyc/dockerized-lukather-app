@@ -6,13 +6,13 @@ import Home from './Home'
 export default React.createClass({
   render() {
     return (
-      <div>
+      <div className='container'>
         <h1 className='main-header'>Steve Lukather Discography</h1>
-        <ul role="nav">
-          <li><NavLink to="/about">About</NavLink></li>
-          <li><NavLink to="/years">Years</NavLink></li>
-          <li><NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink></li>
-        </ul>
+        <div className='nav'>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/years">Years</NavLink>
+          <NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink>
+        </div>
         {this.props.children || <Home/> }
       </div>
     )

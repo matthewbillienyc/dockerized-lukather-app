@@ -2,32 +2,81 @@
   @include box-sizing(border-box)
 }
 
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+.container {
+  width: 60%;
+  margin-left: 15%;
+  text-align: center;
+}
+
+a.active {
+  color: red;
+}
+
 .active {
   color: green;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 ul {
   list-style-type: none;
 }
 
-.grid {
-  margin: 0;
-
-  &:after {
-    content: '';
-    display: table;
-    clear: both;
-  }
+.list-container {
+  padding-top: 20px;
+  position: relative;
+  height: 75px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
-[class*='col-'] {
-  float: left;
-  padding-right: 10px;
-  .grid &:last-of-type {
-    padding-right: 0;
-  }
+.scrollable-list {
+  height: 50px;
+  white-space: nowrap;
 }
 
-.col-half {
-  width: 49%;
+::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollable-list a {
+  background-color: darkgrey;
+  margin-right: 4px;
+  padding: 2px 8px;
+  width: 50px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.scrollable-list a.active {
+  color: white;
+}
+
+:last-child {
+  margin-right: 0px;
+}
+
+.about {
+  padding-top: 40px;
+}
+
+.home {
+  padding-top: 40px;
+}
+
+.nav a {
+  padding: 10px;
+}
+
+.albums-list {
+  text-align: left;
+  padding-left: 50px;
 }

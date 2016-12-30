@@ -6,9 +6,9 @@ export default React.createClass({
     return { yearData: { year: '', albums: [] } }
   },
   
-  getYear(){
+  getYear(year){
     let self = this
-    fetch(`http://localhost:3000/v1/years/${this.props.params.year}`)
+    fetch(`http://localhost:3000/v1/years/${year}`)
       .then(function(response){
         return response.json()
       })
@@ -16,15 +16,14 @@ export default React.createClass({
         self.setState({ yearData: json.year })
       })
   },
-  
+
   render() {
-    this.getYear()
+    this.getYear(this.props.params.year)
     let albumsList = this.state.yearData.albums.map(function(album){
       return (<li key={album.title + album.artist}>{album.title} - {album.artist}</li>)
     })
     return (
       <div>
-        <h2>{this.props.params.year}</h2>
         <ul className='album-list'>
           {albumsList}
         </ul>

@@ -28,17 +28,16 @@ export default React.createClass({
 
   render() {
     let yearsList = this.state.years.map(function(year){
-      return(<li key={year.year}><NavLink to={"/years/" + year.year}>{year.year}</NavLink></li>)
+      return(<NavLink key={year.year} to={"/years/" + year.year}><li>{year.year}</li></NavLink>)
     })
     return (  
-      <div className='grid'>
-        <div className='col-half'>
-          <h2>Years</h2>
-          <ul>        
+      <div className='main-content'>
+        <div className='list-container'>
+          <ul className='scrollable-list'>        
             {yearsList}
           </ul>
         </div>
-        <div className='col-half'>
+        <div className='albums-list'>
           {this.props.children}
         </div>
       </div>
