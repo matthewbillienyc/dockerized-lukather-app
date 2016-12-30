@@ -1,3 +1,33 @@
+* {
+  @include box-sizing(border-box)
+}
+
 .active {
   color: green;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.grid {
+  margin: 0;
+
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+[class*='col-'] {
+  float: left;
+  padding-right: 10px;
+  .grid &:last-of-type {
+    padding-right: 0;
+  }
+}
+
+.col-half {
+  width: 49%;
 }
