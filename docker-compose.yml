@@ -1,23 +1,5 @@
 version: '2'
 services:
-  db:
-    image: postgres:9.4
-    volumes:
-      - ./dbdata:/var/lib/postgresql/data
-  api:
-    build:
-      context: ./lukather-api
-    command: bash /app/start_server.sh
-    environment:
-      RAILS_PORT: 3000
-      DB_HOST: db
-      DB_USERNAME: postgres
-    volumes:
-      - ./lukather-api:/app
-    ports:
-      - "3000:3000"
-    depends_on:
-      - db
   web:
     build: 
       context: ./lukather-discography
@@ -25,5 +7,5 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./lukather-discography:/apps/lukather-discography/src/app
-    working_dir: /apps/lukather-discography/src/app
+      - ./lukather-discography:/usr/src/app
+    working_dir: /usr/src/app
