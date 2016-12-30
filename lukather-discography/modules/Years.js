@@ -8,7 +8,7 @@ export default React.createClass({
   },
 
   getInitialState(){
-    return { years: [] }
+    return { years: [], currentYear: {} }
   },
 
   componentDidMount(){
@@ -26,9 +26,25 @@ export default React.createClass({
       })
   },
 
+  getYear(year){
+    let self = this
+    fetch(`http://localhost:3000/v1/years/${year.year}`)
+      .then(function(response){
+        return response.json()
+      })
+      .then(function(json){
+        self.setState({ currentYear: json.year })
+      })
+  },
+
+  setCurrentYear(year){
+    this.getYear(year)
+  },
+
   render() {
+    let self = this
     let yearsList = this.state.years.map(function(year){
-      return(<NavLink key={year.year} to={"/years/" + year.year}><li>{year.year}</li></NavLink>)
+      return(<NavLink key={year.year} onClick={() => self.setCurrentYear(year)} to={"/years/" + year.year}><li>{year.year}</li></NavLink>)
     })
     return (  
       <div className='main-content'>
@@ -38,7 +54,9 @@ export default React.createClass({
           </ul>
         </div>
         <div className='albums-list'>
-          {this.props.children}
+        {this.props.children && React.cloneElement(this.props.children, {
+          currentYear: this.state.currentYear
+        })}
         </div>
       </div>
     )

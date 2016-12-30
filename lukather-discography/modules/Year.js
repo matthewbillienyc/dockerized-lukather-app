@@ -2,24 +2,9 @@ import React from 'react'
 import 'whatwg-fetch'
 
 export default React.createClass({
-  getInitialState(){
-    return { yearData: { year: '', albums: [] } }
-  },
-  
-  getYear(year){
-    let self = this
-    fetch(`http://localhost:3000/v1/years/${year}`)
-      .then(function(response){
-        return response.json()
-      })
-      .then(function(json){
-        self.setState({ yearData: json.year })
-      })
-  },
-
   render() {
-    this.getYear(this.props.params.year)
-    let albumsList = this.state.yearData.albums.map(function(album){
+    console.log(this.props)
+    let albumsList = this.props.currentYear.albums.map(function(album){
       return (<li key={album.title + album.artist}>{album.title} - {album.artist}</li>)
     })
     return (
