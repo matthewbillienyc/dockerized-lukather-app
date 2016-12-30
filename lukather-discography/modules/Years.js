@@ -8,7 +8,7 @@ export default React.createClass({
   },
 
   getInitialState(){
-    return { years: [], currentYear: {} }
+    return { years: [], currentYear: { year: '', albums: [] } }
   },
 
   componentDidMount(){
