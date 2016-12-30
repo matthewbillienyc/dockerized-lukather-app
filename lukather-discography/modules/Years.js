@@ -31,12 +31,16 @@ export default React.createClass({
       return(<li key={year.year}><NavLink to={"/years/" + year.year}>{year.year}</NavLink></li>)
     })
     return (  
-      <div>
-        <h2>Years</h2>
-        <ul>
-        {yearsList}
-        </ul>
-        {this.props.children}
+      <div className='grid'>
+        <div className='col-half'>
+          <h2>Years</h2>
+          <ul>        
+            {yearsList}
+          </ul>
+        </div>
+        <div className='col-half'>
+          {this.props.children}
+        </div>
       </div>
     )
   }
