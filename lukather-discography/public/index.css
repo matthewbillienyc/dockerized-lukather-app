@@ -13,15 +13,24 @@ body {
 }
 
 a.active {
-  color: red;
+  background-color: darkgrey;
+  color: white;
 }
 
-.active {
-  color: green;
+a.active:hover {
+  background-color: white;
+  color: black;
 }
 
 a {
+  margin-right: 5px;
   text-decoration: none;
+  background-color: darkgrey;
+  color: black;
+}
+
+a:hover {
+  background-color: white;
   color: black;
 }
 
@@ -58,6 +67,14 @@ ul {
 
 .scrollable-list a.active {
   color: white;
+}
+
+.scrollable-list a:hover {
+  background-color: white;
+}
+
+.scrollable-list a.active:hover {
+  color: black;
 }
 
 :last-child {

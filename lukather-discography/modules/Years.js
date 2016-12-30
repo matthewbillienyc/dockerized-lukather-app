@@ -1,5 +1,6 @@
 import React from 'react'
 import NavLink from './NavLink'
+import LukatherInfo from './LukatherInfo'
 import 'whatwg-fetch'
 
 export default React.createClass({
@@ -56,7 +57,7 @@ export default React.createClass({
         <div className='albums-list'>
         {this.props.children && React.cloneElement(this.props.children, {
           currentYear: this.state.currentYear
-        })}
+        }) || <LukatherInfo/> }
         </div>
       </div>
     )
