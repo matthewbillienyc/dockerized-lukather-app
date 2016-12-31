@@ -9,22 +9,13 @@ export class YearsService {
   private yearsUrl = 'http://localhost:3000/v1/years';
 
   constructor(private http: Http) { }
-
-  getYears() {
-    return [
-      { year: 1977 },
-      { year: 1978 },
-      { year: 1979 },
-      { year: 1980 }
-    ]
-  }
   
-  // getYears(): Promise<Year[]> {
-  //   return this.http.get(this.yearsUrl)
-  //     .toPromise()
-  //     .then(response => response.json().years as Year[])
-  //     .catch(this.handleError);
-  // }
+  getYears(): Promise<Year[]> {
+    return this.http.get(this.yearsUrl)
+      .toPromise()
+      .then(response => response.json().years as Year[])
+      .catch(this.handleError);
+  }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
