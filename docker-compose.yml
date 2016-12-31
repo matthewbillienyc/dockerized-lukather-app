@@ -1,13 +1,14 @@
+
 version: '2'
 services:
   db:
     image: postgres:9.4
     volumes:
-      - ./dbdata:/var/lib/postgresql/data
+      - ./dbdata:/Mac/var/lib/postgresql/data
   web:
     build: 
       context: ./lukather-discography
-    command: npm start
+    command: bash start_server.sh
     ports:
       - "8080:8080"
     volumes:
