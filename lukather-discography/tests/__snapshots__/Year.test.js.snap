@@ -1,0 +1,17 @@
+exports[`test Year creates list items for each album 1`] = `
+<div>
+  <ul
+    className="album-list">
+    <li>
+      Rock On
+       - 
+      MJ
+    </li>
+    <li>
+      Album 2
+       - 
+      Artist 2
+    </li>
+  </ul>
+</div>
+`;
