@@ -17,7 +17,7 @@ test('Year creates list items for each album', () => {
     ]
   }
   
-  let component = renderer.create(
+  const component = renderer.create(
     <Year currentYear={props}/>
   )
 
