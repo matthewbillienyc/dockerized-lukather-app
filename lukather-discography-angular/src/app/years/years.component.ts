@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { YearsService } from '../years.service';
-import { Year } from '../year'
+import { Year } from '../year/year'
 
 @Component({
   selector: 'app-years',
@@ -18,6 +18,6 @@ export class YearsComponent implements OnInit {
   }
 
   getYears(): void {
-    this.years = this.yearsService.getYears() //.then(years => this.years = years);
+    this.years = this.yearsService.getYears().then(years => this.years = years);
   }
 }

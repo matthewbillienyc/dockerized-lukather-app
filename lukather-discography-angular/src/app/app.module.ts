@@ -9,6 +9,7 @@ import { NavComponent } from './nav/nav.component';
 import { YearsComponent } from './years/years.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
+import { YearComponent } from './year/year.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeComponent } from './home/home.component';
     NavComponent,
     YearsComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    YearComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,10 @@ import { HomeComponent } from './home/home.component';
       {
         path: 'about',
         component: AboutComponent
+      },
+      {
+        path: 'years/:year',
+        component: YearComponent
       }
     ])
   ],
